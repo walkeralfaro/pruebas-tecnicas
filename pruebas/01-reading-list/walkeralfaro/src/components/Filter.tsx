@@ -1,21 +1,20 @@
 
-
-
 export interface FilterProps {
   name: string;
   values: string[];
-  onFilterOptionSelected: (selectedValue: object) => void;
+  onFilterChange: (selectedValue: object) => void;
 }
 
 // -------------------------------------------------------------------------------------------
-export const Filter = ({ name, values, onFilterOptionSelected }: FilterProps) => {
+export const Filter = ({ name, values, onFilterChange: onFilterOptionSelected }: FilterProps) => {
 
-  
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const filterValue = e.target.value;
     const filterName = e.target.attributes[0].value;
     onFilterOptionSelected({[filterName]: filterValue});
   }
+
+  
   
   return (
     <>
@@ -23,7 +22,6 @@ export const Filter = ({ name, values, onFilterOptionSelected }: FilterProps) =>
         name={name}
         onChange={handleChange}
       >
-
         {
           values.map( (filterValue) => (
             <option
@@ -32,13 +30,13 @@ export const Filter = ({ name, values, onFilterOptionSelected }: FilterProps) =>
             >
               {filterValue}
             </option>
-
-          ) )
+          ))
         }
-
       </select>
 
-    
+      {
+
+      }
     </>
   )
 }

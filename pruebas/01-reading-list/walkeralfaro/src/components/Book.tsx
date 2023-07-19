@@ -1,7 +1,11 @@
 
+interface BookProps {
+  img: string;
+  title: string;
+}
 
-export const Book = () => {
+export const Book = ({img, title} : BookProps )=> {
   return (
-    <div>Book</div>
+    <img src={img} alt={title} width={150} />
   )
 }

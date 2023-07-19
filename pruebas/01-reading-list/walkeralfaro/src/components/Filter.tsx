@@ -14,8 +14,6 @@ export const Filter = ({ name, values, onFilterChange: onFilterOptionSelected }:
     onFilterOptionSelected({[filterName]: filterValue});
   }
 
-  
-  
   return (
     <>
       <select
@@ -33,10 +31,6 @@ export const Filter = ({ name, values, onFilterChange: onFilterOptionSelected }:
           ))
         }
       </select>
-
-      {
-
-      }
     </>
   )
 }

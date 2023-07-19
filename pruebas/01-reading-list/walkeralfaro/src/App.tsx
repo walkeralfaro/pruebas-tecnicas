@@ -32,13 +32,13 @@ export const App = () => {
       <main>
 
         {
-          books.map( ({ISBN, cover, title, genre}) => {
-            if(filters.genre === genre || filters.genre === InitialStateFilters.genre) {
+          books.map( (book) => {
+            if(filters.genre === book.genre || filters.genre === InitialStateFilters.genre) {
               return (
               <Book
-                key={ISBN}
-                img={cover}
-                title={title}
+                key={book.ISBN}
+                cover={book.cover}
+                title={book.title}
               />
               )}
             })

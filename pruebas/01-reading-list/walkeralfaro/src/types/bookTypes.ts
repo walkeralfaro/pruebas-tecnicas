@@ -1,4 +1,4 @@
-export interface Book {
+export interface BookProps {
   ISBN: string;
   title: string;
   author: {

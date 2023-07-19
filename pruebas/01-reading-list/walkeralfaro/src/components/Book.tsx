@@ -1,11 +1,11 @@
 
-interface BookProps {
-  img: string;
+interface LocalBookProps {
+  cover: string;
   title: string;
 }
 
-export const Book = ({img, title} : BookProps )=> {
+export const Book = ({cover, title} : LocalBookProps )=> {
   return (
-    <img src={img} alt={title} width={150} />
+    <img src={cover} alt={title} width={150} />
   )
 }

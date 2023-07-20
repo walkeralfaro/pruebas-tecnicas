@@ -2,19 +2,15 @@
 import { BooksProps } from '../types/bookTypes'
 import { Book } from './Book';
 
-export const Books = ({books, filters, InitialStateFilters}: BooksProps) => {
+export const Books = ({books, filters, InitialStateFilters, readingStateChange}: BooksProps) => {
 
-  const handleAddReadingList = (readingState: boolean) => {
-    console.log(readingState);
-  }
-  
+
   return (
 
     <>
-
     {
       books.map( (book) => {
-        if(filters.genre === book.genre || filters.genre === InitialStateFilters.genre) {
+        if(filters?.genre === book.genre || filters?.genre === InitialStateFilters?.genre) {
           return (
             
             <Book
@@ -22,19 +18,12 @@ export const Books = ({books, filters, InitialStateFilters}: BooksProps) => {
               cover={book.cover}
               title={book.title}
               reading={book.reading}
-              readingStateChange={handleAddReadingList}
+              ISBN={book.ISBN}
+              readingStateChange={readingStateChange}
             />
-
-  
-          
-          )}
-        })
+        )}
+      })
     }
-
-    
     </>
-
   )
-      
-    
 }

@@ -2,26 +2,30 @@
 interface LocalBookProps {
   cover: string;
   title: string;
+  ISBN: string;
   reading: boolean;
-  readingStateChange: (readingState: boolean) => void;
+  readingStateChange: (ISBN: string) => void;
 }
 
-export const Book = ({cover, title, reading, readingStateChange: readingState} : LocalBookProps )=> {
+export const Book = ({ ISBN, cover, title, reading, readingStateChange} : LocalBookProps )=> {
 
-  const handleAddReadingList = () => {
-    readingState(true)
-    
-  }
 
-  console.log(reading);
-  
   return (
     <>
     
       <img src={cover} alt={title} width={150} />
-      <button
-        onClick={handleAddReadingList}
-      >add reading list</button>
+
+      {
+        !reading ? 
+        <button
+          onClick={() => readingStateChange(ISBN)}
+        >add to reading list</button>
+        :
+        <button
+          onClick={() => readingStateChange(ISBN)}
+        >remove from reading list</button>
+      }
+
     </>
   )
 }

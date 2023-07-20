@@ -21,8 +21,9 @@ export type FilterProps = {
 
 export type BooksProps = {
   books: BookProps[],
-  filters: FilterProps,
-  InitialStateFilters: FilterProps,
+  readingStateChange: (ISBN: string) => void,
+  filters?: FilterProps,
+  InitialStateFilters?: FilterProps,
 
 }
 

@@ -1,40 +1,29 @@
-import { ReadingBooksProp } from '../types/bookTypes'
+// import { Libro } from "./Libro"
+import { BooksProps } from '../types/bookTypes'
 import { Book } from './Book';
 
-export const ReadingBooks = ({readingBooks} : ReadingBooksProp ) => {
+export const ReadingBooks = ({books, readingStateChange}: BooksProps) => {
 
-  console.log(readingBooks);
 
-  const handleAddReadingList = () => {
-    console.log('hola');
-    
-  }
-
-  const readingBooksList = readingBooks.filter( readingBook => readingBook.reading === true  )
-  
   return (
+
     <>
-    
-        {
-          readingBooksList.filter( (book) => {
-    
-              return (
-                
-                <Book
-                  key={book.ISBN}
-                  cover={book.cover}
-                  title={book.title}
-                  reading={book.reading}
-                  readingStateChange={handleAddReadingList}
-                />
-    
-      
-              
-              )
-            })
-        }
-    
-    
+    {
+      books.map( (book) => {
+        if(book.reading === true) {
+          return (
+            
+            <Book
+              key={book.ISBN}
+              cover={book.cover}
+              title={book.title}
+              reading={book.reading}
+              ISBN={book.ISBN}
+              readingStateChange={readingStateChange}
+            />
+        )}
+      })
+    }
     </>
   )
 }

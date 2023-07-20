@@ -4,7 +4,9 @@ import { Book } from './Book';
 
 export const Books = ({books, filters, InitialStateFilters}: BooksProps) => {
 
-  console.log(filters);
+  const handleAddReadingList = (readingState: boolean) => {
+    console.log(readingState);
+  }
   
   return (
 
@@ -14,11 +16,17 @@ export const Books = ({books, filters, InitialStateFilters}: BooksProps) => {
       books.map( (book) => {
         if(filters.genre === book.genre || filters.genre === InitialStateFilters.genre) {
           return (
-          <Book
-            key={book.ISBN}
-            cover={book.cover}
-            title={book.title}
-          />
+            
+            <Book
+              key={book.ISBN}
+              cover={book.cover}
+              title={book.title}
+              reading={book.reading}
+              readingStateChange={handleAddReadingList}
+            />
+
+  
+          
           )}
         })
     }

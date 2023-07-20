@@ -11,6 +11,7 @@ export function useBooks () {
     pages: book.pages,
     synopsis: book.synopsis,
     year: book.year,
+    reading: false,
   }))
 
   return { books: mappedBooks }

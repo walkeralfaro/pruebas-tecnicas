@@ -10,6 +10,7 @@ export type BookProps = {
   pages: number,
   synopsis: string,
   year: number,
+  reading:boolean,
 }
 
 export type FilterProps = {
@@ -23,4 +24,8 @@ export type BooksProps = {
   filters: FilterProps,
   InitialStateFilters: FilterProps,
 
+}
+
+export type ReadingBooksProp = {
+  readingBooks: BookProps[],
 }

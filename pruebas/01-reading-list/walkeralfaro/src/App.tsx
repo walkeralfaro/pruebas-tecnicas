@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Filter } from "./components/Filter"
 
 import { readGenres } from "./helpers/helpers";
 import { useBooks } from "./hooks/useBooks";
 import { Books } from "./components/Books";
+import { ReadingBooks } from "./components/ReadingBooks";
 
 const InitialStateFilters = {
   genre: 'Todos',
@@ -21,10 +22,6 @@ export const App = () => {
     setFilters({...filters, ...selectedValue })
   }
 
-  useEffect( () => {
-    console.log('filtro cambió');
-    
-  }, [filters] )
 
   return (
     <div>
@@ -37,6 +34,10 @@ export const App = () => {
       <main>
         <Books books={books} filters={filters} InitialStateFilters={InitialStateFilters} />
       </main>
+
+      <aside>
+        <ReadingBooks readingBooks={books} />
+      </aside>
 
     </div>
   )

@@ -5,7 +5,6 @@ import { readGenres } from "./helpers/helpers";
 import { useBooks } from "./hooks/useBooks";
 import { Books } from "./components/Books";
 
-
 import { BookProps } from "./types/bookTypes";
 import { ReadingBooks } from "./components/ReadingBooks";
 
@@ -24,8 +23,41 @@ export const App = () => {
   const booksRef = useRef(books);
 
   useEffect( () => {
-    setListBooks(booksRef.current)
+
+    const storedValue = localStorage.getItem('savedItems');
+
+
+    if(storedValue) {
+
+
+        const cachopo = JSON.parse(storedValue)
+  
+
+
+      const booksStored : BookProps[] = JSON.parse(storedValue)
+
+      console.log(booksStored)
+
+
+      
+
+
+         setListBooks(booksStored)
+
+    
+        
+
+    } else {
+      
+      localStorage.setItem('savedItems', JSON.stringify(booksRef.current));
+      const storedValue = localStorage.getItem('savedItems');
+
+    }
+
+
   }, [] )
+
+
 
   const handleFilterChange = (selectedValue: object) => {
     setFilters({...filters, ...selectedValue })

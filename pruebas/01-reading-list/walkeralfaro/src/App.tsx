@@ -30,10 +30,10 @@ export const App = () => {
     if(storedValue) {
 
 
-        const cachopo = JSON.parse(storedValue)
   
 
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const booksStored : BookProps[] = JSON.parse(storedValue)
 
       console.log(booksStored)
@@ -50,7 +50,7 @@ export const App = () => {
     } else {
       
       localStorage.setItem('savedItems', JSON.stringify(booksRef.current));
-      const storedValue = localStorage.getItem('savedItems');
+      // const storedValue = localStorage.getItem('savedItems');
 
     }
 
